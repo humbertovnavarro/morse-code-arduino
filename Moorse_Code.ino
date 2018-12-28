@@ -1,28 +1,29 @@
 //Sets the time for one unit in milliseconds. Higher values = faster signaling. Lower values = slower signaling.
 int unitInterval = 100;
 String sentence = "";
+int pin = LED_BUILTIN;
 //Listens through the serial monitor for input.
 //You may set sentence to whatever you're trying to broadcast instead
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 char input = '%';
 void setup() {
+  
   Serial.begin(9600);
-  //Change this to any pin you want.
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(pin, OUTPUT);
 }
 void unit(){
   delay(unitInterval);
 }
 void dot(){
-  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(pin, HIGH);
   delay(unitInterval);
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(pin, LOW);
   unit();
 }
 void dash(){
-  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(pin, HIGH);
   delay(unitInterval * 3);
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(pin, LOW);
   unit();
 }
 void wordspace(){
