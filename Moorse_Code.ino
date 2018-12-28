@@ -7,6 +7,7 @@ String sentence = "";
 char input = '%';
 void setup() {
   Serial.begin(9600);
+  //Change this to any pin you want.
   pinMode(LED_BUILTIN, OUTPUT);
 }
 void unit(){
